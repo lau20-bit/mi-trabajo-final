@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LookPerfecto - Moda para Mujer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>LookPerfecto</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#outfits">Outfits</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#carrito">Carrito (<span id="cart-count">0</span>)</a></li>
+        <li><a href="#login">Iniciar Sesión</a></li>
+        <li><a href="#contacto">Contáctanos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="highlight">
+      <img src="IMAGENES/logo.png" alt="Logo LookPerfecto" class="logo" />
+      <h2>Combina tu Estilo</h2>
+      <p>Explora looks armados pensados para ti</p>
+    </section>
+
+    <section id="outfits" class="outfits-sugeridos">
+      <h2>Outfit del Día</h2>
+      <ul>
+        <li>Blusa rosada</li>
+        <li>Jean azul</li>
+        <li>Tacones nude</li>
+        <li>Bolso beige</li>
+      </ul>
+      <img src="IMAGENES/4f22f21b-e40a-43d3-b1a0-13617bb3d5dc.png" alt="Outfit sugerido" />
+    </section>
+
+    <section id="catalogo" class="seccion catalogo">
+      <h2>Catálogo</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="IMAGENES/blusa.jpg" alt="Camiseta Rosa" />
+          <h3>Camiseta Rosa</h3>
+          <p>$25.000</p>
+          <button type="button" onclick="agregarAlCarrito('Camiseta Rosa', 25000)">Agregar</button>
+        </div>
+        <div class="product-card">
+          <img src="IMAGENES/falda.jpg" alt="Falda Floral" />
+          <h3>Falda Floral</h3>
+          <p>$35.000</p>
+          <button type="button" onclick="agregarAlCarrito('Falda Floral', 35000)">Agregar</button>
+        </div>
+        <div class="product-card">
+          <img src="IMAGENES/jean.jpg" alt="Jeans Ajustados" />
+          <h3>Jeans Ajustados</h3>
+          <p>$60.000</p>
+          <button type="button" onclick="agregarAlCarrito('Jeans Ajustados', 60000)">Agregar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="carrito" class="seccion carrito">
+      <h2>Carrito de Compras</h2>
+      <ul id="lista-carrito"></ul>
+      <p><strong>Total: $<span id="total">0</span></strong></p>
+      <button type="button" onclick="vaciarCarrito()">Vaciar Carrito</button>
+    </section>
+
+    <section id="login" class="seccion login">
+      <h2>Iniciar Sesión</h2>
+      <form>
+        <label>
+          Usuario
+          <input type="text" placeholder="Usuario" required />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" placeholder="Contraseña" required />
+        </label>
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <section id="contacto" class="seccion contacto">
+      <h2>Contáctanos</h2>
+      <form>
+        <label>
+          Tu nombre
+          <input type="text" placeholder="Tu nombre" required />
+        </label>
+        <label>
+          Tu correo electrónico
+          <input type="email" placeholder="Tu correo electrónico" required />
+        </label>
+        <label>
+          Mensaje
+          <textarea rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+        </label>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LookPerfecto - Moda sostenible para mujeres</p>
+  </footer>
+
+  <script>
+    let total = 0;
+    let cartCount = 0;
+
+    function agregarAlCarrito(nombre, precio) {
+      const lista = document.getElementById('lista-carrito');
+      const item = document.createElement('li');
+      item.innerHTML = `${nombre} - $${precio.toLocaleString()} <button type="button" onclick="eliminarProducto(this, ${precio})">Eliminar</button>`;
+      lista.appendChild(item);
+      total += precio;
+      cartCount++;
+      actualizarTotales();
+    }
+
+    function eliminarProducto(boton, precio) {
+      boton.parentElement.remove();
+      total -= precio;
+      cartCount--;
+      actualizarTotales();
+    }
+
+    function vaciarCarrito() {
+      document.getElementById('lista-carrito').innerHTML = '';
+      total = 0;
+      cartCount = 0;
+      actualizarTotales();
+    }
+
+    function actualizarTotales() {
+      document.getElementById('total').textContent = total.toLocaleString();
+      document.getElementById('cart-count').textContent = cartCount;
+    }
+  </script>
+</body>
+</html>

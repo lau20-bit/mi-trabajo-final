@@ -1,0 +1,232 @@
+:root {
+  --pink-light: #fdecef;
+  --pink-main: #f8bfcf;
+  --pink-dark: #f18ca8;
+  --gold-soft: #d4af37;
+  --gold-hover: #b9962d;
+  --text-color: #4a4a4a;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--pink-light);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Encabezado y navegación */
+header {
+  background-color: var(--pink-main);
+  color: var(--white);
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 4px solid var(--gold-soft);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--gold-soft);
+}
+
+/* Logo */
+.logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+/* Sección destacada */
+.highlight {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--pink-main);
+  color: var(--white);
+  border-bottom: 2px solid var(--gold-soft);
+}
+
+/* Outfits sugeridos */
+.outfits-sugeridos {
+  background-color: var(--pink-light);
+  padding: 2rem;
+  margin: 1.5rem auto;
+  border: 2px solid var(--gold-soft);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.outfits-sugeridos h2 {
+  color: var(--pink-dark);
+}
+
+.outfits-sugeridos ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.outfits-sugeridos li {
+  padding: 0.5rem 0;
+  font-weight: bold;
+}
+
+.outfits-sugeridos img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: block;
+  margin: 1rem auto 0;
+  border-radius: 12px;
+  border: 2px solid var(--pink-main);
+  object-fit: cover;
+}
+
+/* Catálogo de productos */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.product-card {
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 240px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--pink-main);
+  margin: 0 auto;
+  display: block;
+}
+
+.product-card h3 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--pink-dark);
+}
+
+.product-card p {
+  color: var(--text-color);
+  margin: 0.5rem 0;
+}
+
+/* Botón */
+button {
+  background-color: var(--gold-soft);
+  color: var(--white);
+  padding: 0.5rem 1.2rem;
+  border: none;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--gold-hover);
+}
+
+/* Formulario de contacto (si lo usas más adelante) */
+.contacto {
+  background-color: var(--pink-light);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 600px;
+}
+
+.contacto h2 {
+  color: var(--pink-dark);
+  margin-bottom: 1rem;
+}
+
+.contacto input,
+.contacto textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--pink-main);
+}
+
+.contacto button {
+  background-color: var(--pink-main);
+}
+
+.contacto button:hover {
+  background-color: var(--gold-soft);
+}
+
+/* Pie de página */
+footer {
+  background-color: var(--pink-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-top: 4px solid var(--gold-soft);
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-card img {
+    margin: auto;
+  }
+}
